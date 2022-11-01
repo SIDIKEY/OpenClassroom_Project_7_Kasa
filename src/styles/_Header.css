@@ -1,0 +1,41 @@
+.header {
+    margin: 2rem 4rem 0 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+  width: 18.2%;
+  height: 5%;
+}
+.nav {
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+}
+.navhome {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 142.6%;
+  /* or 34px */
+  display: flex;
+  align-items: flex-end;
+  text-align: right;
+  text-decoration-line: underline;
+  color: #ff6060;
+}
+.navabout {
+    margin-left: 10%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 142.6%;
+  /* or 34px */
+  display: flex;
+  align-items: flex-end;
+  text-align: right;
+  color: #ff6060;
+}
