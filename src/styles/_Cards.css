@@ -1,0 +1,83 @@
+.cards_BG {
+    margin: 2rem 2rem 2rem 2rem;
+    padding: 1.5rem;
+    background-color: #f7f7f7;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 15px;
+  }
+  .card {
+    width: 340px;
+    height: 340px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    border-radius: 10px;
+    background: #ff6060;
+    transition: transform .2s;
+  }
+  .card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  .card_img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    opacity: 0.8;
+  }
+  .title {
+    position: absolute;
+    width: 310px;
+    padding-left: 1rem;
+    padding-top: 17.5rem;
+    overflow-wrap: break-word;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 142.6%;
+    color: #ffffff;
+  }
+
+  @media (max-width: 480px) {
+    .backgroundCards {
+            margin: 2rem 0rem 2rem 0rem;
+            padding: 1rem 0rem 0 0rem;
+    }
+    .card {
+        width: 335px;
+        height: 255px;
+    }
+    .title {
+        width: 240px;
+        padding-left: 0.5rem;
+        padding-top: 12.8rem;
+    }
+    }
+    
+    /*===========================================*/
+    /*Media queries for tabs*/
+    /*===========================================*/
+    @media (min-width: 481px) and (max-width: 830px) {
+       .backgroundCards {
+        margin: 2rem 2rem 2rem 2rem;
+            padding: 1rem 1rem 0 1rem;
+       } 
+       .card {
+           width: 320px;
+           height: 255px;
+       }
+       .title {
+           width: 240px;
+           padding-left: 0.5rem;
+           padding-top: 12.8rem;
+       }
+    }
+    
