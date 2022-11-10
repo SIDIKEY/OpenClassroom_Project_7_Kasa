@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react'
-import "../../components/Collapsible/Collapsible.css"
+import "../../styles/_Accordion.css"
 import Chevron from '../Images/Chevron.png'
 
-export default function Collapsible ({src, title, alt, desc}) {
+export default function Accordion({src, title, alt, desc}) {
 
     const [toggle, setToggle] = useState(false)
     const [heightEl, setHeightEl] = useState(false);
@@ -14,26 +14,26 @@ export default function Collapsible ({src, title, alt, desc}) {
         setHeightEl(`${refHeight.current.scrollHeight}px`)
     }, [])
 
-    const collapseState = () => {
+    const toggleState = () => {
         setToggle(!toggle)
     }
 
     console.log(toggle);
     return (
-        <div className="collapsible">
+        <div className="accordion">
 
             <button 
-            onClick={collapseState}
-            className="collapsible-visible">
+            onClick={toggleState}
+            className="accordion-visible">
                 <span>{title}</span>
                 <img 
-                className={toggle?  "open " : "undefined"}
+                className={toggle?  "active" : "undefined"}
                 src={Chevron} 
                 alt={alt}/>
             </button>
             
             <div 
-            className={toggle ? "collapsible-toggle animated" : "collapsible-toggle"}
+            className={toggle ? "accordion-toggle animated" : "accordion-toggle"}
             style={{height: toggle ? `${heightEl}` : "0px"}}
             ref={refHeight}
             >

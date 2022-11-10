@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    column-gap: 15px;
+    row-gap: 15px;
   }
   .card {
     width: 340px;
@@ -46,13 +46,18 @@
     color: #ffffff;
   }
 
+  
+
+
+
   @media (max-width: 480px) {
-    .backgroundCards {
-            margin: 2rem 0rem 2rem 0rem;
-            padding: 1rem 0rem 0 0rem;
+    .cards_BG {
+        margin: 1rem 0rem 2rem 0rem;
+        padding: 1rem 0rem 0 0rem;
+        row-gap: 10px;
     }
     .card {
-        width: 335px;
+        width: 100%;
         height: 255px;
     }
     .title {
@@ -60,24 +65,25 @@
         padding-left: 0.5rem;
         padding-top: 12.8rem;
     }
+    a {
+      width: 90%;
     }
+  }
     
-    /*===========================================*/
-    /*Media queries for tabs*/
-    /*===========================================*/
-    @media (min-width: 481px) and (max-width: 830px) {
-       .backgroundCards {
-        margin: 2rem 2rem 2rem 2rem;
-            padding: 1rem 1rem 0 1rem;
-       } 
-       .card {
-           width: 320px;
+    
+@media (min-width: 481px) and (max-width: 830px) {
+      .cards_BG {
+          margin: 2rem 2rem 2rem 2rem;
+          padding: 1rem 1rem 0 1rem;
+      } 
+      .card {
+           width: 300px;
            height: 255px;
-       }
-       .title {
+      }
+      .title {
            width: 240px;
            padding-left: 0.5rem;
            padding-top: 12.8rem;
-       }
-    }
+      }
+}
     

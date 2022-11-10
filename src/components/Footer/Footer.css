@@ -1,0 +1,34 @@
+.footer {
+    background-color: #000000;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    bottom: 0;
+    align-items: center;
+   
+  }
+  .logoFooter {
+    padding-top: 2rem;
+  }
+  .text {
+    color: #ffffff;
+    margin: 0;
+   
+    padding-top: 1.2rem;
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    .text {
+      font-size: 12px;
+    }
+  }
+  
+ 
+  @media (min-width: 481px) and (max-width: 768px) {
+    .text {
+      font-size: 16px;
+    }
+  }
+  
