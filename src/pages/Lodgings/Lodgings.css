@@ -27,10 +27,10 @@
 }
 .lodgingInfos_2 {
     display: flex;
-    justify-content: space-around;
     align-items: flex-start;
     padding: 5px 0px 0px 0px;
     flex-direction: column;
+    gap: 35px;
 }
 
 .locationInfos {
@@ -106,10 +106,10 @@
 }
 
 .accordions_ {
-    justify-content: space-around;
+    justify-content: space-evenly;
     display: flex;
-    margin-bottom: 160px;
-    
+    gap: 15px;
+    margin: 0;
 }
 .accordion_ {
     max-width: 600px;

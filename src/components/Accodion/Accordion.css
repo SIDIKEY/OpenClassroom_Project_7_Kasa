@@ -3,11 +3,11 @@
     justify-content: center;
     width: 45%;
 }
-.collapsible {
-    width: 90%;
+.accordeon {
+    width: 400px;
 }
 
-.collapseHeader {
+.accordeon_header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,12 +20,13 @@
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
-.collapseArrow {
-    transform: rotate(-180deg);
-    transition: transform 0.2s ease-in-out;
+
+.icone_ouverte {
+   
+    cursor: pointer;
 }
 
-.collaspeContent {
+.accoredeon_content {
     background-color: #f7f7f7;
     color: #FF6060;
     line-height: 24px;

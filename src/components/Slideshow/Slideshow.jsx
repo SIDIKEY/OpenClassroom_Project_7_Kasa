@@ -1,12 +1,12 @@
 import {React} from "react";
-import Slideshow from "../../components/Slideshow/slideshow"
+import Slideshow from "../../components/Slideshow/slideshowTest"
 import { Navigate, useParams} from "react-router-dom"
 import { Data } from "../../Data/Data"
 import Lodgingcss from "../Lodgings/Lodgings.css"
 import fullStar from "../../components/Images/full-star.png"
 import emptyStar from "../../components/Images/empty-star.png"
 import Accordion from "../../components/Accordion/Accordion"
-import Collapse from "../../components/Collapsible/Collapsible"
+import Collapsible from "../../components/Collapsible/Collapsible"
 
 
 
@@ -18,7 +18,7 @@ export default function Lodgings() {
 
   return (
     <>
-    
+    {lodging ? (
     
     <div className="container">
       
@@ -78,13 +78,11 @@ export default function Lodgings() {
 
           </section>
       ))}
-  
+
       {Data.filter((Lodging) => Lodging.id === params.id).map((Lodging) => (
             <div className="accordions accordions_">
-
-              
-              <Accordion title="Description" key="{Lodging.description+Lodging.id}" desc={Lodging.description} /> 
-              {/* <Collapsible
+              <Accordion title="Description" key={Lodging.description+Lodging.id} desc={Lodging.description} />
+              <Collapsible
                 key={Lodging.equipments+Lodging.id}
                 title="Equipments" 
                 desc={Lodging.equipments.map((info) => (    
@@ -93,24 +91,14 @@ export default function Lodgings() {
                     </div>
                 ))}
                 
-              /> */}
-              <Collapse key={Lodging.equipments+Lodging.id}
-                title="Equipments" 
-                desc= <span> {Lodging.equipments.map((info) => (    
-                    <li key={info+Lodging.id+Lodging.equipments}>
-                      {info}
-                    </li>
-                ))}
-                </span>
-                
               />
             </div>
       ))}
      
     </div>
-  
-      
-    
+    ) : (
+      <Navigate replace to="/*" />
+    )}
   </>
   )
 }

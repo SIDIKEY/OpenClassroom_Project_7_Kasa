@@ -2,10 +2,10 @@ import React, {useState, useEffect, useRef} from 'react'
 import "../../styles/_Accordion.css"
 import Chevron from '../Images/Chevron.png'
 
-export default function Accordion({src, title, alt, desc}) {
+export default function Accordion({title, alt, desc}) {
 
-    const [toggle, setToggle] = useState(false)
-    const [heightEl, setHeightEl] = useState(false);
+    const [toggle, setToggle] = useState(0)
+    const [heightEl, setHeightEl] = useState();
 
     const refHeight = useRef()
 
@@ -27,7 +27,7 @@ export default function Accordion({src, title, alt, desc}) {
             className="accordion-visible">
                 <span>{title}</span>
                 <img 
-                className={toggle?  "active" : "undefined"}
+                className={toggle && "active"}
                 src={Chevron} 
                 alt={alt}/>
             </button>

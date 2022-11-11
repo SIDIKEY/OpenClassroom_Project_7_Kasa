@@ -1,47 +1,39 @@
-import React, {useState, useEffect, useRef} from 'react'
-import "../../components/Collapsible/Collapsible.css"
-import Chevron from '../Images/Chevron.png'
+import React from "react";
+import { useState } from "react";
+import "../Collapsible/Collapsible.css";
+import arrow from '../Images/Chevron.png'
 
-export default function Collapsible ({src, title, alt, desc}) {
+export default function Collapsible ({title, content, alt}) {
 
-    const [toggle, setToggle] = useState(false)
-    const [heightEl, setHeightEl] = useState(false);
+    const [clicked, setcliked] = useState(false)
 
-    const refHeight = useRef()
-
-    useEffect(() => {
-        console.log(refHeight);
-        setHeightEl(`${refHeight.current.scrollHeight}px`)
-    }, [])
-
-    const collapseState = () => {
-        setToggle(!toggle)
+    const tumble = () => {
+        setcliked(!clicked)
     }
 
-    console.log(toggle);
-    return (
-        <div className="collapsible">
+    console.log(clicked);
 
-            <button 
-            onClick={collapseState}
-            className="collapsible-visible">
-                <span>{title}</span>
-                <img 
-                className={toggle?  "open " : "undefined"}
-                src={Chevron} 
-                alt={alt}/>
-            </button>
-            
-            <div 
-            className={toggle ? "collapsible-toggle animated" : "collapsible-toggle"}
-            style={{height: toggle ? `${heightEl}` : "0px"}}
-            ref={refHeight}
-            >
-                <p aria-hidden={toggle ? "true" : "false"}>
-                    {desc}
-                </p>
+    return (
+        <div className="wrapper">
+            <div className="collapsible">
+                <button onClick={tumble} className="collapseHeader">
+
+                    <h2>{title}</h2>
+
+                    <img 
+                      className={tumble?  "active" : "undefined"}
+                      src={arrow} 
+                      alt={alt}
+                    />
+
+                </button>
+                <div className="collaspeContent">
+                    {content}
+                </div>
+
+
             </div>
-            
         </div>
     )
 }
+
