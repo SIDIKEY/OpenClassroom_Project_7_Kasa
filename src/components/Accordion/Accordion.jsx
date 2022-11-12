@@ -5,7 +5,7 @@ import Chevron from '../Images/Chevron.png'
 export default function Accordion({title, alt, desc}) {
 
     const [toggle, setToggle] = useState(0)
-    const [heightEl, setHeightEl] = useState();
+    const [heightEl, setHeightEl] = useState(0);
 
     const refHeight = useRef()
 

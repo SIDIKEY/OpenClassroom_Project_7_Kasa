@@ -1,19 +1,23 @@
 import {React} from "react";
-import Slideshow from "../../components/Slideshow/slideshow"
-import { Navigate, useParams} from "react-router-dom"
-import { Data } from "../../Data/Data"
-import Lodgingcss from "../Lodgings/Lodgings.css"
+import Slideshoww from "../../components/Slideshow/Slideshoww"
+import {useParams} from "react-router-dom"
+
+
+
 import fullStar from "../../components/Images/full-star.png"
 import emptyStar from "../../components/Images/empty-star.png"
 import Accordion from "../../components/Accordion/Accordion"
-import Collapse from "../../components/Collapsible/Collapsible"
+
+import lodgingCss from "../Lodgings/Lodgings.css"
+import Accordioon from "../../components/Accodion/Accordion";
+import { DataLodgings } from "../../Data/DataCrud";
 
 
 
 export default function Lodgings() {
-  const params = useParams();
+  let {id} = useParams();
   const stars = [1, 2, 3, 4, 5];
-  const lodging = Data;
+  const lodging = DataLodgings.getOneLodging(id);
  
 
   return (
@@ -22,21 +26,21 @@ export default function Lodgings() {
     
     <div className="container">
       
-      <Slideshow key="{Lodging.pictures}"/>
+      <Slideshoww key="{Lodging.pictures}"/>
      
-      {Data.filter((Lodging) => Lodging.id === params.id).map((Lodging) => (
+      
           <section key="{Lodging.id}" className="cardInfos">
-            <article className={Lodgingcss.lodgingInfos}>
+            <article className="lodgingInfos">
               
               <div className="locationInfos">
-                <h1 key="{Lodging.title}">{Lodging.title}</h1>
-                <p key="{Lodging.location}">{Lodging.location}</p>
+                <h1 key="{lodging.title}">{lodging.title}</h1>
+                <p key="{lodging.location}">{lodging.location}</p>
               </div>
               
               <div>
                 <ul className="lodgingTags">
-                  {Lodging.tags.map((tag) => (
-                    <li className="lodgingTagItem" key={tag+Lodging.id}> 
+                  {lodging.tags.map((tag) => (
+                    <li className="lodgingTagItem" key={tag+lodging.id}> 
                       {tag} 
                     </li>
                     
@@ -50,9 +54,9 @@ export default function Lodgings() {
             <article className="lodgingInfos_2">
               <div>
                 <div className="hostInfos">
-                  <p>{Lodging.host.name}</p>
+                  <p>{lodging.host.name}</p>
                   <img
-                    src={Lodging.host.picture}
+                    src={lodging.host.picture}
                     alt="the host"
                     className = "hostPicture"
                   />
@@ -65,9 +69,9 @@ export default function Lodgings() {
                     <img
                       
                       className="star"
-                      key={star+Lodging.id+index}
+                      key={star+lodging.id+index}
                       // opérateur conditionnel
-                      src={index <= Lodging.rating ? fullStar : emptyStar}
+                      src={index <= lodging.rating ? fullStar : emptyStar}
                       alt={star}
                     />
                   ))}
@@ -77,13 +81,13 @@ export default function Lodgings() {
            
 
           </section>
-      ))}
+     
   
-      {Data.filter((Lodging) => Lodging.id === params.id).map((Lodging) => (
+      
             <div className="accordions accordions_">
 
               
-              <Accordion title="Description" key="{Lodging.description+Lodging.id}" desc={Lodging.description} /> 
+              <Accordioon title="Description" key={lodging.description} content={lodging.description} /> 
               {/* <Collapsible
                 key={Lodging.equipments+Lodging.id}
                 title="Equipments" 
@@ -94,18 +98,19 @@ export default function Lodgings() {
                 ))}
                 
               /> */}
-              <Collapse key={Lodging.equipments+Lodging.id}
+              <Accordioon key={lodging.equipments+lodging.id}
                 title="Equipments" 
-                desc= <span> {Lodging.equipments.map((info) => (    
-                    <li key={info+Lodging.id+Lodging.equipments}>
-                      {info}
-                    </li>
+                content=  
+                {lodging.equipments.map((infos, index) => (
+                  <li key={`${lodging.equipments}-${index}`}>
+                    {infos}
+                  </li>
                 ))}
-                </span>
+                
                 
               />
             </div>
-      ))}
+   
      
     </div>
   

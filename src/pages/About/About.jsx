@@ -5,6 +5,7 @@ import Aboutcss from "../About/About.css"
 import Chevron from '../../components/Images/Chevron.png'
 
 import Accordion from "../../components/Accordion/Accordion"
+import Accordioon from "../../components/Accodion/Accordion";
 
 
 export default function About() {
@@ -13,7 +14,7 @@ export default function About() {
         <Banner src={ImgBannerAbout} title="" alt="Illustration d'une montagne" />
         <div className="accordions">
             
-            <Accordion title="Fiabilité" src={Chevron} desc="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont
+            <Accordioon title="Fiabilité" src={Chevron} content="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont
               conformes aux logements, et toutes les informations sont régulièrement vérifiées
               par nos équipes"
             />

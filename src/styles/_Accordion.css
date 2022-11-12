@@ -15,6 +15,9 @@
         width: 47%;
     }
     
+    .equipementList {
+        text-decoration: none;
+    }
     .accordion-visible {
         background:#FF6060;
         width: 100%;
@@ -129,12 +132,11 @@
 }
 
 @media (min-width: 481px) and (max-width: 2560px){
-    .accordion {
-        max-width: 998px;
+    .accordion {     
         margin: 2% 9%;
         border-radius: 3px;
         background: #f1f1f1;
-        min-width: 300px;
+        width: 47%;
     }
 }
 

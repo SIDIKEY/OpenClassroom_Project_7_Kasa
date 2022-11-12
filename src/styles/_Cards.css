@@ -86,4 +86,29 @@
            padding-top: 12.8rem;
       }
 }
+
+@media (min-width: 1470px) and (max-width: 1948px){
+    .cards_BG {
+        margin: 2rem 2rem 2rem 2rem;
+        padding: 1.5rem;
+        background-color: #f7f7f7;
+        border-radius: 25px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        row-gap: 33px;
+        column-gap: 10px;
+        padding-right: 13%;
+        padding-left: 13%;
+    }
+    .header {
+        margin: 2rem 10rem 0 10rem!important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .banner {
+        margin: 2rem 10rem 2rem 10rem!important;
+    }
+}
     

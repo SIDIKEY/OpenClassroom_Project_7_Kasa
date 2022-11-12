@@ -3,6 +3,7 @@ import Lodgings from "../../lodgings.json"
 import _Cards from "../../styles/_Cards.css"
 import { Link } from "react-router-dom"
 
+
 function Card() {
     const [lodgings] = useState(Lodgings)
   
@@ -27,3 +28,4 @@ function Card() {
   }
 
   export default Card
+
