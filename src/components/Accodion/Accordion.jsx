@@ -5,7 +5,7 @@ import _Accordion from "./Accordion.css"
 import PropTypes from 'prop-types'
 
 
-function Accordioon({ title, content }) {
+function Accordion({ title, content }) {
     const [isOpen, setIsOpen] = useState(false)
   
     return isOpen ? (
@@ -14,7 +14,7 @@ function Accordioon({ title, content }) {
           <h2>
             {title}
           </h2>
-          <img src={down_arrow_icon} className="icone_ouverte"/>
+          <img src={down_arrow_icon} className="icone_ouverte" alt="arrow open"/>
         </div>
         <div className="accordeon_content">
           <ul aria-hidden="false">
@@ -29,7 +29,7 @@ function Accordioon({ title, content }) {
             <h2>
               {title}
             </h2>
-            <img src={down_arrow_icon} className="icone"/>
+            <img src={down_arrow_icon} className="icone" alt="arrow closed"/>
           </div>
           <div className="accordeon_content_hidden" aria-hidden="true">
             <ul aria-hidden="true">
@@ -40,9 +40,9 @@ function Accordioon({ title, content }) {
     )
   }
   
-  export default Accordioon
+  export default Accordion
 
-  Accordioon.propTypes= {
+  Accordion.propTypes= {
     title: PropTypes.string.isRequired,
     content: PropTypes.oneOfType([
       PropTypes.string,

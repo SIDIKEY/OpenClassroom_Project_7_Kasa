@@ -6,6 +6,12 @@
 
 .accordeon {
     padding: 1px 24px;
-    width: 60%!important;
+    width: 50%!important;
 
+}
+
+@media (min-width:551px) and (max-width:1020px) {
+    .accordeon {
+        width: 55%!important;
+    }
 }

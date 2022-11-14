@@ -86,3 +86,10 @@
       font-size: 16px;
   }
 }
+
+@media (min-width: 1440px) {
+  .header {
+    margin: 1rem 4rem 0 4rem;
+  }
+
+}

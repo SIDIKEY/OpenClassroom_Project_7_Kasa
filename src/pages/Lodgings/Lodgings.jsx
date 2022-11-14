@@ -4,7 +4,7 @@ import {useParams, Navigate} from "react-router-dom"
 import fullStar from "../../components/Images/full-star.png"
 import emptyStar from "../../components/Images/empty-star.png"
 import lodgingCss from "../Lodgings/Lodgings.css"
-import Accordioon from "../../components/Accodion/Accordion";
+import Accordion from "../../components/Accodion/Accordion";
 import { DataCrud } from "../../Data/DataCrud";
 
 
@@ -77,9 +77,9 @@ export default function Lodgings() {
 
             <div className="accordions accordions_">
               
-              <Accordioon title="Description" key={lodging.description} content={lodging.description} /> 
+              <Accordion title="Description" key={lodging.description} content={lodging.description} /> 
 
-              <Accordioon key={lodging.equipments+lodging.id}
+              <Accordion key={lodging.equipments+lodging.id}
                 title="Equipments" 
                 content=  
                 {lodging.equipments.map((infos, index) => (

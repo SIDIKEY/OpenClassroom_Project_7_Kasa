@@ -216,7 +216,10 @@
     }
 }
 
-@media (min-width:551px) and (max-width:790px){
+@media (min-width:551px){
+    .accordeon {
+        width: 40%!important;
+    }
 
 }
 html, body {
