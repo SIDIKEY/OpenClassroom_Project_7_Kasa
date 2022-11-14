@@ -1,32 +1,26 @@
 import {React} from "react";
-import Slideshoww from "../../components/Slideshow/Slideshoww"
-import {useParams} from "react-router-dom"
-
-
-
+import Slideshow from "../../components/Slideshow/Slideshow"
+import {useParams, Navigate} from "react-router-dom"
 import fullStar from "../../components/Images/full-star.png"
 import emptyStar from "../../components/Images/empty-star.png"
-import Accordion from "../../components/Accordion/Accordion"
-
 import lodgingCss from "../Lodgings/Lodgings.css"
 import Accordioon from "../../components/Accodion/Accordion";
-import { DataLodgings } from "../../Data/DataCrud";
+import { DataCrud } from "../../Data/DataCrud";
 
 
 
 export default function Lodgings() {
   let {id} = useParams();
   const stars = [1, 2, 3, 4, 5];
-  const lodging = DataLodgings.getOneLodging(id);
+  const lodging = DataCrud.getOneLodging(id);
  
 
   return (
     <>
-    
-    
-    <div className="container">
+    {lodging ? (
+      <div className="container">
       
-      <Slideshoww key="{Lodging.pictures}"/>
+      <Slideshow key={lodging.pictures} slides={lodging.pictures}/>
      
       
           <section key="{Lodging.id}" className="cardInfos">
@@ -66,38 +60,25 @@ export default function Lodgings() {
               <div>
                 <div className="starsList">
                   {stars.map((star, index) => (
-                    <img
-                      
+
+                    <img  
                       className="star"
                       key={star+lodging.id+index}
                       // opérateur conditionnel
                       src={index <= lodging.rating ? fullStar : emptyStar}
                       alt={star}
                     />
+
                   ))}
                 </div>
               </div>
             </article>
-           
-
           </section>
-     
-  
-      
-            <div className="accordions accordions_">
 
+            <div className="accordions accordions_">
               
               <Accordioon title="Description" key={lodging.description} content={lodging.description} /> 
-              {/* <Collapsible
-                key={Lodging.equipments+Lodging.id}
-                title="Equipments" 
-                desc={Lodging.equipments.map((info) => (    
-                    <div key={info+Lodging.id+Lodging.equipments}>
-                      {info}
-                    </div>
-                ))}
-                
-              /> */}
+
               <Accordioon key={lodging.equipments+lodging.id}
                 title="Equipments" 
                 content=  
@@ -105,17 +86,16 @@ export default function Lodgings() {
                   <li key={`${lodging.equipments}-${index}`}>
                     {infos}
                   </li>
-                ))}
-                
-                
+                ))}             
               />
-            </div>
-   
-     
+
+
+            </div>  
     </div>
   
-      
-    
+    ):(
+      <Navigate replace to="/*" />
+    )}
   </>
   )
 }

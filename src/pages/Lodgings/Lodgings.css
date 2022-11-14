@@ -115,6 +115,8 @@
     margin: 0;
     width: 100%;
     padding-bottom: 300px;
+    flex-direction: row;
+    align-items: flex-start;
 }
 .accordion_ {
     max-width: 600px;
@@ -125,7 +127,7 @@
     width: 45%;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .cardInfos {
         display: flex;
         flex-direction: column;
@@ -197,9 +199,13 @@
         margin-top: 20px;
         
     }
+    .accordeon {
+        
+        width: 90%!important;
+    }
 }
 
-@media (min-width:819px) {
+@media (min-width:1088px) {
     .locationInfos>h1 {
         font-weight: 500;
         font-size: 30px;
@@ -208,6 +214,10 @@
         margin-top: 5px;
         margin-bottom: 5px;
     }
+}
+
+@media (min-width:551px) and (max-width:790px){
+
 }
 html, body {
     margin:0;

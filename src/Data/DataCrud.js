@@ -5,9 +5,9 @@ const getAllLodgings = () => {
 }
 
 const getOneLodging = (id) => {
-  return Lodgings.find(log => log.id === id)
+  return Lodgings.find(lodging => lodging.id === id)
 }
 
-export const DataLodgings = {
+export const DataCrud = {
   getAllLodgings, getOneLodging
 }

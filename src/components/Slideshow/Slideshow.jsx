@@ -1,68 +1,73 @@
 import React, { useState } from "react"
 import { useParams } from "react-router-dom"
-import { Data } from "../../Data/Data"
 import leftArrow from "../../components/Images/left-arrow.svg";
 import rightArrow from "../../components/Images/right-arrow.svg";
 import "../../styles/Slideshow.css"
+import PropTypes from 'prop-types'
 
-
-export default function Slideshow() {
-  // A hook who allows us to display data for every differnt ID inside the JSON File
+export default function Slideshow({slides}) {
+ 
   const params = useParams();
   const [currentIndex, setcurrentIndex] = useState(0);
 
   const goToNext = (length) => {
-    setcurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1);
+    setcurrentIndex(currentIndex === slides.length - 1 ? 0 : currentIndex + 1);
   };
 
   const goToPrevious = (length) => {
     
-    setcurrentIndex(currentIndex === 0 ? length - 1 : currentIndex - 1);
+    setcurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
   };
   return (
     <>
-      {Data.filter((Lodging) => Lodging.id === params.id).map((Lodging, index) => (
-        <section key={index} className="slider">
-          {Lodging.pictures.length > 1 ? (
+      
+        <section  className="slider">
+          {slides.length > 1 ? (
             <>
               <img
                 src={leftArrow}
                 alt="go to the previous slide"
                 className="left_arrow"
-                onClick={() => goToPrevious(Lodging.pictures.length)}
+                onClick={goToPrevious}
               />
               <img
                 src={rightArrow}
                 alt="go to the next slide"
                 className="right_arrow"
-                onClick={() => goToNext(Lodging.pictures.length)}
+                onClick={goToNext}
               />
             </>
           ) : (
             ""
           )}
-          {Lodging.pictures.map((image, index) => {
-            return (
+          
+           
               <article
-                className={index === currentIndex ? "slide active" : "slide"}
-                key={index}
+                className= "slide active"
+                key={slides}
               >
-                
-                {index === currentIndex && (
+              
                   <img
-                    src={image}
+                    src={slides[currentIndex]}
                     alt="lodging slider img"
                     className="lodgingImage"
                   />
-                )}
+                
               </article>
-            );
-          })}
+            
+          
           <p className="slide_rooms">
-            {`${currentIndex + 1}`}/{`${Lodging.pictures.length}`}{" "}
+            {`${currentIndex + 1}`}/{`${slides.length}`}{" "}
           </p>
         </section>
-      ))}
+      
     </>
   );
+}
+
+Slideshow.propTypes= { 
+  slides: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+  ]),
 }
